@@ -1,8 +1,8 @@
 package com.joe.flightinfo.api.common
 
 import com.joe.flightinfo.api.model.*
-import kotlinx.coroutines.Deferred
-import okhttp3.RequestBody
+import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.*
 
 interface ApiServices {
@@ -14,8 +14,10 @@ interface ApiServices {
     }
 
     @GET(depart)
-    fun geDepartureFlightInfo(@Path("airPortID") id: String): Deferred<BaseResponse<AirPortFlyInfoModel>>
+//    fun geDepartureFlightInfo(@Path("airPortID") id: String): Deferred<BaseResponse<AirPortFlyInfoModel>>
+    fun getDepartureFlightInfo(@Path("airPortID") id: String): Response<FlightResponseModel>
 
     @GET(arrival)
-    fun getArrivalFlightInfo(@Path("airPortID") id: String): Deferred<BaseResponse<AirPortFlyInfoModel>>
+//    fun getArrivalFlightInfo(@Path("airPortID") id: String): Deferred<BaseResponse<AirPortFlyInfoModel>>
+    fun getArrivalFlightInfo(@Path("airPortID") id: String): Response<FlightResponseModel>
 }

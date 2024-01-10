@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -35,17 +36,29 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
 dependencies {
+//    val lifecycle_version = "2.5.1"
+//    // ViewModel
+//    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+//    // LiveData
+//    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+//    // Annotation processor
+//    kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
+
+    val lifecycleVersion = "2.2.0-alpha02"
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+//    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+//    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
     testImplementation("junit:junit:4.13.2")
@@ -59,4 +72,9 @@ dependencies {
     implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
 
 //    implementation("com.github.amitshekhariitbhu:Fast-Android-Networking:1.0.2")
+
+    implementation("androidx.recyclerview:recyclerview:1.2.0-beta01")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+//    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
 }

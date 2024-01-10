@@ -1,19 +1,19 @@
 package com.joe.flightinfo.api.model
 
 data class AirPortFlyInfoModel (
-    val FlyType: String = "",
-    val AirlineID: String = "",
-    val Airline:  String = "",
-    val FlightNumber:  String = "",
-    val DepartureAirportID:  String = "",
-    val DepartureAirport:  String = "",
-    val ArrivalAirportID:  String = "",
-    val ArrivalAirport:  String = "",
-    val ScheduleTime:  String = "",
-    val ActualTime:  String = "",
-    val EstimatedTime:  String = "",
-    val Remark:  String = "",
-    val Terminal:  String = "",
-    val Gate:  String = "",
-    val UpdateTime:  String = ""
+    val flyType: String = "",
+    val airlineID: String = "",
+    val airline:  String = "",
+    val flightNumber:  String = "",
+    val departureAirportID:  String = "",
+    val departureAirport:  String = "",
+    val arrivalAirportID:  String = "",
+    val arrivalAirport:  String = "",
+    val scheduleTime:  String = "",
+    val actualTime:  String = "",
+    val estimatedTime:  String = "",
+    val remark:  String = "",
+    val terminal:  String = "",
+    val gate:  String = "",
+    val updateTime:  String = ""
 )
