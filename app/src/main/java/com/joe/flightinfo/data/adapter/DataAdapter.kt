@@ -3,19 +3,19 @@ package com.joe.flightinfo.data.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.joe.flightinfo.api.model.AirPortFlyInfoModel
-import com.joe.flightinfo.databinding.RecyclerLayoutBinding
+import com.joe.flightinfo.data.model.FlightInfoModelItem
+import com.joe.flightinfo.databinding.FlightInfoItemLayoutBinding
 
-class DataAdapter: RecyclerView.Adapter<DataAdapter.MyViewHolder>() {
-    var items = ArrayList<AirPortFlyInfoModel>()
+class DataAdapter : RecyclerView.Adapter<DataAdapter.MyViewHolder>() {
+    private var items = ArrayList<FlightInfoModelItem>()
 
-    fun setData(data : ArrayList<AirPortFlyInfoModel>){
+    fun setData(data: ArrayList<FlightInfoModelItem>) {
         this.items = data
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = RecyclerLayoutBinding.inflate(layoutInflater)
+        val binding = FlightInfoItemLayoutBinding.inflate(layoutInflater)
         return MyViewHolder(binding)
     }
 
@@ -23,14 +23,16 @@ class DataAdapter: RecyclerView.Adapter<DataAdapter.MyViewHolder>() {
         return items.size
     }
 
+
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(items[position])
     }
 
-    class MyViewHolder(val binding: RecyclerLayoutBinding): RecyclerView.ViewHolder(binding.root){
+    class MyViewHolder(val binding: FlightInfoItemLayoutBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(data: AirPortFlyInfoModel){
-            binding.flightData = data
+        fun bind(data: FlightInfoModelItem) {
+            binding.flightInfoData = data
             binding.executePendingBindings()
         }
 

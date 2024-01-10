@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "FlightInfo"
+rootProject.name = "Flight Info"
 include(":app")
  

@@ -22,14 +22,14 @@ class CurrencyFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val currencyViewModel =
+        val slideshowViewModel =
             ViewModelProvider(this).get(CurrencyViewModel::class.java)
 
         _binding = FragmentCurrencyBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-        currencyViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.textSlideshow
+        slideshowViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root

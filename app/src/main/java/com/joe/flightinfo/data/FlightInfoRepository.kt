@@ -1,12 +1,14 @@
 package com.joe.flightinfo.data
 
-import com.joe.flightinfo.api.common.ApiServices
-import com.joe.flightinfo.api.common.RetrofitClient
+import com.joe.flightinfo.network.ApiEndPoint
+import com.joe.flightinfo.network.RetrofitClient
 
 class FlightInfoRepository {
-    private val retrofit = RetrofitClient.getRetrofitInstance().create(ApiServices::class.java)
+    private val retrofit = RetrofitClient.getRetrofitInstance().create(ApiEndPoint::class.java)
 
-    suspend fun getAllDepartureFlightRepository(airPortID : String) = retrofit.getDepartureFlightInfo(airPortID)
+    suspend fun getAllDepartureFlightRepository(airPortID: String) =
+        retrofit.getDepartureFlightInfo(airPortID)
 
-    suspend fun getAllArrivalFlightRepository(airPortID : String) = retrofit.getArrivalFlightInfo(airPortID)
+    suspend fun getAllArrivalFlightRepository(airPortID: String) =
+        retrofit.getArrivalFlightInfo(airPortID)
 }
