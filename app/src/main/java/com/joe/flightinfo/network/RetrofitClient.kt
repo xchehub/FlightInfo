@@ -1,5 +1,6 @@
 package com.joe.flightinfo.network
 
+import com.google.gson.GsonBuilder
 import com.localebro.okhttpprofiler.OkHttpProfilerInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -20,6 +21,7 @@ class RetrofitClient {
                 .baseUrl(baseUrl)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
+//                .addConverterFactory(GsonConverterFactory.create(GsonBuilder().serializeNulls().create()))
                 .build()
         }
     }

@@ -60,7 +60,7 @@ class DepartureFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentDepartureBinding.inflate(inflater, container, false)
         return binding.root
     }

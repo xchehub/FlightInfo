@@ -42,6 +42,8 @@ android {
 
 dependencies {
 
+    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
+
     implementation("com.localebro:okhttpprofiler:1.0.8")
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")

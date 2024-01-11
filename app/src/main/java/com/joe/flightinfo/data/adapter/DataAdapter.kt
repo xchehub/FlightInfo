@@ -3,11 +3,16 @@ package com.joe.flightinfo.data.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.joe.flightinfo.data.model.FlightInfoModel
 import com.joe.flightinfo.data.model.FlightInfoModelItem
 import com.joe.flightinfo.databinding.FlightInfoItemLayoutBinding
 
 class DataAdapter : RecyclerView.Adapter<DataAdapter.MyViewHolder>() {
     private var items = ArrayList<FlightInfoModelItem>()
+
+//    fun setData(data: FlightInfoModel) {
+//        this.items = data.items
+//    }
 
     fun setData(data: ArrayList<FlightInfoModelItem>) {
         this.items = data
@@ -22,7 +27,6 @@ class DataAdapter : RecyclerView.Adapter<DataAdapter.MyViewHolder>() {
     override fun getItemCount(): Int {
         return items.size
     }
-
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(items[position])

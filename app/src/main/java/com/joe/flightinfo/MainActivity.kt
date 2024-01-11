@@ -1,5 +1,6 @@
 package com.joe.flightinfo
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import com.google.android.material.snackbar.Snackbar
@@ -12,6 +13,8 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.joe.flightinfo.databinding.ActivityMainBinding
+import com.joe.flightinfo.helper.SharePreferenceHelper
+import com.joe.flightinfo.service.FlightInfoUpdateService
 
 class MainActivity : AppCompatActivity() {
 
@@ -42,6 +45,12 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        SharePreferenceHelper.setBaseAirport(baseContext, "TPE")
+        SharePreferenceHelper.setBaseCurrency(baseContext, "USD")
+
+        val serviceIntent = Intent(this, FlightInfoUpdateService::class.java)
+        startService(serviceIntent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

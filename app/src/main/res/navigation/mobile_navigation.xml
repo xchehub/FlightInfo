@@ -8,18 +8,18 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.joe.flightinfo.ui.arrival.ArrivalFragment"
-        android:label="@string/menu_home"
+        android:label="@string/menu_arrival"
         tools:layout="@layout/fragment_arrival" />
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.joe.flightinfo.ui.departure.DepartureFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_departure"
         tools:layout="@layout/fragment_departure" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.joe.flightinfo.ui.currency.CurrencyFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_currency"
         tools:layout="@layout/fragment_currency" />
 </navigation>

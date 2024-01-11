@@ -6,16 +6,19 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.joe.flightinfo.data.FlightInfoRepository
 import com.joe.flightinfo.data.adapter.DataAdapter
+import com.joe.flightinfo.data.model.FlightInfoModel
 import com.joe.flightinfo.data.model.FlightInfoModelItem
 import com.joe.flightinfo.ui.Result
 import kotlinx.coroutines.launch
 
 class ArrivalViewModel(private val repository: FlightInfoRepository) : ViewModel() {
 
+//    private val _flightInfoResponseData = MutableLiveData<Result<FlightInfoModel>>()
+//    val flightInfoResponseData: LiveData<Result<FlightInfoModel>> =
+//        _flightInfoResponseData
     private val _flightInfoResponseData = MutableLiveData<Result<ArrayList<FlightInfoModelItem>>>()
     val flightInfoResponseData: LiveData<Result<ArrayList<FlightInfoModelItem>>> =
         _flightInfoResponseData
-
     private var dataAdapter: DataAdapter = DataAdapter()
 
     init {
@@ -26,6 +29,10 @@ class ArrivalViewModel(private val repository: FlightInfoRepository) : ViewModel
         return dataAdapter
     }
 
+//    fun setAdapterData(data: FlightInfoModel) {
+//        dataAdapter.setData(data)
+//        dataAdapter.notifyDataSetChanged()
+//    }
     fun setAdapterData(data: ArrayList<FlightInfoModelItem>) {
         dataAdapter.setData(data)
         dataAdapter.notifyDataSetChanged()
@@ -33,7 +40,7 @@ class ArrivalViewModel(private val repository: FlightInfoRepository) : ViewModel
 
     private fun makeApiCall(input: String? = null) = viewModelScope.launch {
         try {
-            val response = repository.getAllArrivalFlightRepository("TSA")
+            val response = repository.getAllArrivalFlightRepository("TPE")
             if (response.isSuccessful) {
                 _flightInfoResponseData.value = Result.Success(response.body()!!)
             } else {
@@ -43,4 +50,5 @@ class ArrivalViewModel(private val repository: FlightInfoRepository) : ViewModel
             _flightInfoResponseData.value = Result.ErrorException(e)
         }
     }
+
 }

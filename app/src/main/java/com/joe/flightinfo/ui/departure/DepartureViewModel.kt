@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.joe.flightinfo.data.FlightInfoRepository
 import com.joe.flightinfo.data.adapter.DataAdapter
+import com.joe.flightinfo.data.model.FlightInfoModel
 import com.joe.flightinfo.data.model.FlightInfoModelItem
 import com.joe.flightinfo.ui.Result
 import kotlinx.coroutines.launch
@@ -21,6 +22,9 @@ import kotlinx.coroutines.launch
 
 class DepartureViewModel(private val repository: FlightInfoRepository) : ViewModel() {
 
+//    private val _flightInfoResponseData = MutableLiveData<Result<ArrayList<FlightInfoModelItem>>>()
+//    val flightInfoResponseData: LiveData<Result<ArrayList<FlightInfoModelItem>>> =
+//        _flightInfoResponseData
     private val _flightInfoResponseData = MutableLiveData<Result<ArrayList<FlightInfoModelItem>>>()
     val flightInfoResponseData: LiveData<Result<ArrayList<FlightInfoModelItem>>> =
         _flightInfoResponseData
@@ -35,6 +39,10 @@ class DepartureViewModel(private val repository: FlightInfoRepository) : ViewMod
         return dataAdapter
     }
 
+//    fun setAdapterData(data: FlightInfoModel) {
+//        dataAdapter.setData(data)
+//        dataAdapter.notifyDataSetChanged()
+//    }
     fun setAdapterData(data: ArrayList<FlightInfoModelItem>) {
         dataAdapter.setData(data)
         dataAdapter.notifyDataSetChanged()
@@ -42,7 +50,7 @@ class DepartureViewModel(private val repository: FlightInfoRepository) : ViewMod
 
     private fun makeApiCall(input: String? = null) = viewModelScope.launch {
         try {
-            val response = repository.getAllDepartureFlightRepository("TSA")
+            val response = repository.getAllDepartureFlightRepository("TPE")
             if (response.isSuccessful) {
                 _flightInfoResponseData.value = Result.Success(response.body()!!)
             } else {
