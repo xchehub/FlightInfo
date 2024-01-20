@@ -12,7 +12,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.joe.flightinfo.data.model.CurrencyData
 import com.joe.flightinfo.databinding.ActivityMainBinding
+import com.joe.flightinfo.helper.DialogHelper
 import com.joe.flightinfo.helper.SharePreferenceHelper
 import com.joe.flightinfo.service.FlightInfoUpdateService
 
@@ -32,6 +34,37 @@ class MainActivity : AppCompatActivity() {
         binding.appBarMain.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+
+//            DialogHelper().showConfirmDialog(
+//                this,
+//                getString(R.string.confirm),
+//                getString(R.string.cancel),
+//                object : DialogHelper.ITwoEventCallback {
+//                    override fun onCancelClicked() {
+//                        // Do nothing
+//                    }
+//
+//                    override fun onOKClicked() {
+////                        downloadHelper.installApk(file)
+//                    }
+//                }).show()
+
+            DialogHelper().showCurrencyCalculator(
+                this,
+                "OK",
+                "Cancel",
+                "test",
+                object : DialogHelper.ITwoEventCallback {
+                    override fun onCancelClicked() {
+//                        TODO("Not yet implemented")
+                    }
+
+                    override fun onOKClicked() {
+//                        TODO("Not yet implemented")
+                    }
+
+                }).show()
+
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView

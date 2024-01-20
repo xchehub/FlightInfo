@@ -13,9 +13,6 @@ import kotlinx.coroutines.launch
 
 class ArrivalViewModel(private val repository: FlightInfoRepository) : ViewModel() {
 
-//    private val _flightInfoResponseData = MutableLiveData<Result<FlightInfoModel>>()
-//    val flightInfoResponseData: LiveData<Result<FlightInfoModel>> =
-//        _flightInfoResponseData
     private val _flightInfoResponseData = MutableLiveData<Result<ArrayList<FlightInfoModelItem>>>()
     val flightInfoResponseData: LiveData<Result<ArrayList<FlightInfoModelItem>>> =
         _flightInfoResponseData
@@ -29,10 +26,6 @@ class ArrivalViewModel(private val repository: FlightInfoRepository) : ViewModel
         return dataAdapter
     }
 
-//    fun setAdapterData(data: FlightInfoModel) {
-//        dataAdapter.setData(data)
-//        dataAdapter.notifyDataSetChanged()
-//    }
     fun setAdapterData(data: ArrayList<FlightInfoModelItem>) {
         dataAdapter.setData(data)
         dataAdapter.notifyDataSetChanged()

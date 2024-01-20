@@ -9,4 +9,6 @@
     <string name="menu_arrival">Arrivals</string>
     <string name="menu_departure">Departures</string>
     <string name="menu_currency">Currency</string>
+    <string name="confirm">OK</string>
+    <string name="cancel">cancel</string>
 </resources>

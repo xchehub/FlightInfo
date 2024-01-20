@@ -1,10 +1,10 @@
 package com.joe.flightinfo.data.model
 
 data class CurrenciesModel(
-    val `data`: Data
+    val data: CurrencyData
 )
 
-data class Data(
+data class CurrencyData(
     val AUD: Double,
     val BGN: Double,
     val BRL: Double,
@@ -38,4 +38,9 @@ data class Data(
     val TRY: Double,
     val USD: Int,
     val ZAR: Double
+)
+
+data class CurrencyDisplayData(
+    val currencyCode: String,
+    val rate: Float
 )
