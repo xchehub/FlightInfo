@@ -27,7 +27,7 @@
         android:textColor="@color/design_default_color_on_primary"
         android:textStyle="bold"
         android:layout_margin="10dp"
-        android:text="@{String.valueOf(currencyInfoData.rate)}"
+        android:text='@{String.format("%.2f", currencyInfoData.rate)}'
         />
 
 </LinearLayout>

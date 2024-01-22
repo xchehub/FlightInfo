@@ -42,5 +42,5 @@ data class CurrencyData(
 
 data class CurrencyDisplayData(
     val currencyCode: String,
-    val rate: Float
+    val rate: Double
 )

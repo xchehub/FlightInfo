@@ -48,6 +48,7 @@ android {
 }
 
 dependencies {
+    implementation("com.github.tycrek:fcapi-java:0.3")
 
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
 

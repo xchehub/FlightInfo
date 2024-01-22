@@ -12,8 +12,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.joe.flightinfo.BR
+import com.joe.flightinfo.data.model.CurrenciesModel
+import com.joe.flightinfo.data.model.CurrencyDisplayData
 import com.joe.flightinfo.databinding.FragmentArrivalBinding
 import com.joe.flightinfo.databinding.FragmentCurrencyBinding
+import com.joe.flightinfo.helper.SharePreferenceHelper
 import com.joe.flightinfo.ui.Result
 import com.joe.flightinfo.ui.arrival.ArrivalViewModel
 import com.joe.flightinfo.ui.arrival.ArrivalViewModelFactory
@@ -59,8 +62,10 @@ class CurrencyFragment : Fragment() {
             when (result) {
                 is Result.Success -> {
                     binding.progressbar.visibility = View.INVISIBLE
+
 //                    currencyViewModel.setAdapterData(result.data)
-                    result.data
+                    currencyViewModel.setAdapterData(convertToDisplayData(result.data))
+
                 }
                 is Result.Error -> {
                     Toast.makeText(requireContext(), "Error Fetching Data", Toast.LENGTH_LONG).show()
@@ -70,5 +75,24 @@ class CurrencyFragment : Fragment() {
                 }
             }
         })
+    }
+
+    private fun convertToDisplayData(result: CurrenciesModel): ArrayList<CurrencyDisplayData> {
+
+        var displayData = ArrayList<CurrencyDisplayData>()
+        displayData.add(CurrencyDisplayData("CAD", result.data.CAD))
+        displayData.add(CurrencyDisplayData("EUR", result.data.EUR))
+        displayData.add(CurrencyDisplayData("CNY", result.data.CNY))
+        displayData.add(CurrencyDisplayData("HKD", result.data.HKD))
+        displayData.add(CurrencyDisplayData("JPY", result.data.JPY))
+
+        SharePreferenceHelper.setCADRate(requireContext(), result.data.CAD.toString())
+        SharePreferenceHelper.setEURRate(requireContext(), result.data.EUR.toString())
+        SharePreferenceHelper.setCNYRate(requireContext(), result.data.CNY.toString())
+        SharePreferenceHelper.setHKDRate(requireContext(), result.data.HKD.toString())
+        SharePreferenceHelper.setJPYRate(requireContext(), result.data.JPY.toString())
+
+        return displayData
+
     }
 }

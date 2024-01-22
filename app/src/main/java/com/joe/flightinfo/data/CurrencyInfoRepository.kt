@@ -9,4 +9,6 @@ class CurrencyInfoRepository {
 
     suspend fun getAllCurrencyRepository() =
         retrofit.getCurrencies()
+    suspend fun getExchangedCurrency(base: String, currency: String) =
+        retrofit.exchangeRateConvert(base, currency)
 }

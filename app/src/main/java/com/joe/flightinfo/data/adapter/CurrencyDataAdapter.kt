@@ -31,7 +31,7 @@ class CurrencyDataAdapter : RecyclerView.Adapter<CurrencyDataAdapter.MyViewHolde
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(data: CurrencyDisplayData) {
-//            binding.flightInfoData = data
+            binding.currencyInfoData = data
             binding.executePendingBindings()
         }
 

@@ -3,16 +3,15 @@ package com.joe.flightinfo
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.navigation.NavigationView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
-import com.joe.flightinfo.data.model.CurrencyData
+import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
 import com.joe.flightinfo.databinding.ActivityMainBinding
 import com.joe.flightinfo.helper.DialogHelper
 import com.joe.flightinfo.helper.SharePreferenceHelper
@@ -32,22 +31,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "Currency Calculator", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
-
-//            DialogHelper().showConfirmDialog(
-//                this,
-//                getString(R.string.confirm),
-//                getString(R.string.cancel),
-//                object : DialogHelper.ITwoEventCallback {
-//                    override fun onCancelClicked() {
-//                        // Do nothing
-//                    }
-//
-//                    override fun onOKClicked() {
-////                        downloadHelper.installApk(file)
-//                    }
-//                }).show()
 
             DialogHelper().showCurrencyCalculator(
                 this,
@@ -56,11 +41,10 @@ class MainActivity : AppCompatActivity() {
                 "test",
                 object : DialogHelper.ITwoEventCallback {
                     override fun onCancelClicked() {
-//                        TODO("Not yet implemented")
                     }
 
                     override fun onOKClicked() {
-//                        TODO("Not yet implemented")
+
                     }
 
                 }).show()

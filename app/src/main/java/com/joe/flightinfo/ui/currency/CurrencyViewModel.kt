@@ -13,15 +13,7 @@ import kotlinx.coroutines.launch
 
 class CurrencyViewModel (private val repository: CurrencyInfoRepository) : ViewModel() {
 
-//    private val _text = MutableLiveData<String>().apply {
-//        value = "This is slideshow Fragment"
-//    }
-//    val text: LiveData<String> = _text
-
-//    private val _currencyInfoResponseData = MutableLiveData<Result<ArrayList<CurrencyDisplayData>>>()
-//    val currencyInfoResponseData: LiveData<Result<ArrayList<CurrencyDisplayData>>> =
-//        _currencyInfoResponseData
-private val _currencyInfoResponseData = MutableLiveData<Result<CurrenciesModel>>()
+    private val _currencyInfoResponseData = MutableLiveData<Result<CurrenciesModel>>()
     val currencyInfoResponseData: LiveData<Result<CurrenciesModel>> =
         _currencyInfoResponseData
     private var currencyDataAdapter: CurrencyDataAdapter = CurrencyDataAdapter()
@@ -52,4 +44,5 @@ private val _currencyInfoResponseData = MutableLiveData<Result<CurrenciesModel>>
             _currencyInfoResponseData.value = Result.ErrorException(e)
         }
     }
+
 }
