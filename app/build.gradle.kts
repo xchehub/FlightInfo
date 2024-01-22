@@ -22,6 +22,8 @@ android {
         val properties = Properties()
         properties.load(project.rootProject.file("local.properties").inputStream())
         buildConfigField("String", "CURRENCIES_APIKEY", properties.getProperty("CURRENCIES_APIKEY"))
+        buildConfigField("String", "TDX_CLIENT_ID", properties.getProperty("TDX_CLIENT_ID"))
+        buildConfigField("String", "TDX_CLIENT_SECRET", properties.getProperty("TDX_CLIENT_SECRET"))
     }
 
     buildTypes {
