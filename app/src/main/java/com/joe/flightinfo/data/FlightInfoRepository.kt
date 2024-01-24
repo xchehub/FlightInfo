@@ -1,5 +1,7 @@
 package com.joe.flightinfo.data
 
+import android.icu.text.SimpleDateFormat
+import android.util.Log
 import com.joe.flightinfo.BuildConfig
 import com.joe.flightinfo.GlobalAccessToken
 import com.joe.flightinfo.data.model.TdxFlightArrivalInfoItem
@@ -12,6 +14,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Response
+import java.util.Date
 
 class FlightInfoRepository() {
     private val retrofit = RetrofitClient.getRetrofitInstance().create(ApiEndPoint::class.java)
@@ -19,15 +22,22 @@ class FlightInfoRepository() {
     private val tdxFlightRetrofit = TdxRetrofitClient.getFlightRetrofitInstance().create(TdxApiEndPoint::class.java)
 
     suspend fun getAllDepartureFlightRepository(airPortID: String) =
-        tdxFlightRetrofit.getDepartureFlightInfo(airPortID, "Bearer ${GlobalAccessToken.token}", "30", "JSON")
+        tdxFlightRetrofit.getDepartureFlightInfo(airPortID, "Bearer ${GlobalAccessToken.token}", "50", "JSON", "date(FlightDate) eq ${getTodayDate()}")
 
     suspend fun getAllArrivalFlightRepository(airPortID: String): Response<ArrayList<TdxFlightArrivalInfoItem>> {
-        getTdxAccessToken()
+//        getTdxAccessToken()
 
-        return tdxFlightRetrofit.getArrivalFlightInfo(airPortID, "Bearer ${GlobalAccessToken.token}", "30", "JSON")
+        return tdxFlightRetrofit.getArrivalFlightInfo(airPortID, "Bearer ${GlobalAccessToken.token}", "50", "JSON", "date(FlightDate) eq ${getTodayDate()}")
+    }
+
+    private fun getTodayDate(): String {
+        val formatter = SimpleDateFormat("yyyy-MM-dd")
+        val date = Date()
+        return formatter.format(date)
     }
 
     private fun getTdxAccessToken() {
+        Log.i("FlightInfo", "getTdxAccessToken +++")
         if (GlobalAccessToken.token.isNotEmpty()
             && System.currentTimeMillis() - GlobalAccessToken.expireTime > 86400 * 1000 ) {
             return
@@ -46,11 +56,14 @@ class FlightInfoRepository() {
                         GlobalAccessToken.expireTime = System.currentTimeMillis()
                     } else {
 //                        accessTokenResponseData.value = Result.Error(response.message())
+                        Log.i("FlightInfo", "get access token failed")
                     }
                 } catch (e: Exception) {
 //                    accessTokenResponseData.value = Result.ErrorException(e)
+                    Log.i("FlightInfo", "get access token exception")
                 }
-            }
+        }
 //        }
+        Log.i("FlightInfo", "getTdxAccessToken ---")
     }
 }

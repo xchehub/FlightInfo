@@ -2,6 +2,7 @@ package com.joe.flightinfo
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -15,6 +16,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.joe.flightinfo.databinding.ActivityMainBinding
 import com.joe.flightinfo.helper.DialogHelper
 import com.joe.flightinfo.helper.SharePreferenceHelper
+import com.joe.flightinfo.helper.TokenHelper
 import com.joe.flightinfo.service.FlightInfoUpdateService
 
 class MainActivity : AppCompatActivity() {
@@ -73,6 +75,7 @@ class MainActivity : AppCompatActivity() {
 //    override fun onResume() {
 //        super.onResume()
 //        TokenHelper.checkAccessToken(baseContext)
+//        Log.i("FlightInfo", "MainActivity onResume")
 //    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

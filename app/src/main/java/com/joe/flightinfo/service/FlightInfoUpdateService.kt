@@ -81,6 +81,7 @@ class FlightInfoUpdateService : Service() {
     private suspend fun getFlightInfo() {
         Log.i(TAG, "Update flight information")
         FlightInfoRepository().getAllArrivalFlightRepository("TPE")
+        delay(3000)
         FlightInfoRepository().getAllDepartureFlightRepository("TPE")
     }
 

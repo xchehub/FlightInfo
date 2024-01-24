@@ -44,8 +44,9 @@ interface TdxApiEndPoint {
     suspend fun getDepartureFlightInfo(
         @Path("airPortID") id: String,
         @Header("authorization") token: String,
-        @Query("top") top: String,
-        @Query("format") format: String
+        @Query("\$top") top: String,
+        @Query("\$format") format: String,
+        @Query("\$filter") filter: String
     ): Response<ArrayList<TdxFlightDepartureInfoItem>>
 
     @Headers("Accept: application/json")
@@ -53,7 +54,8 @@ interface TdxApiEndPoint {
     suspend fun getArrivalFlightInfo(
         @Path("airPortID") id: String,
         @Header("authorization") token: String,
-        @Query("top") top: String,
-        @Query("format") format: String
+        @Query("\$top") top: String,
+        @Query("\$format") format: String,
+        @Query("\$filter") filter: String
     ): Response<ArrayList<TdxFlightArrivalInfoItem>>
 }

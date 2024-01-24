@@ -1,6 +1,7 @@
 package com.joe.flightinfo.ui.arrival
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,7 +46,6 @@ class ArrivalFragment : Fragment() {
             addItemDecoration(decoration)
         }
 
-
         initObserver()
     }
 
@@ -58,10 +58,12 @@ class ArrivalFragment : Fragment() {
                     arrivalViewModel.setAdapterData(result.data)
                 }
                 is Result.Error -> {
-                    Toast.makeText(requireContext(), "Error Fetching Data", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), "Error Fetching Arrival Data", Toast.LENGTH_LONG).show()
+                    Log.i("FlightInfo", "Error Fetching Arrival Data")
                 }
                 is Result.ErrorException -> {
                     Toast.makeText(requireContext(), "Exception" , Toast.LENGTH_LONG).show()
+                    Log.i("FlightInfo", "Arrival Exception")
                 }
             }
         })

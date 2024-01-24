@@ -91,7 +91,7 @@ class DepartureFragment : Fragment() {
                     departualViewModel.setAdapterData(result.data)
                 }
                 is Result.Error -> {
-                    Toast.makeText(requireContext(), "Error Fetching Data", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), "Error Fetching Departure ata", Toast.LENGTH_LONG).show()
                 }
                 is Result.ErrorException -> {
                     Toast.makeText(requireContext(), "Exception" , Toast.LENGTH_LONG).show()

@@ -93,13 +93,13 @@ object SharePreferenceHelper {
             .getString(ACCESS_TOKEN, "")
     }
 
-    fun setAccessTokenExpireTime(context: Context, expireTime: Int) {
+    fun setAccessTokenExpireTime(context: Context, expireTime: Long) {
         context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE).edit()
-            .putInt(ACCESS_TOKEN_EXPIRE_TIME, expireTime).apply()
+            .putLong(ACCESS_TOKEN_EXPIRE_TIME, expireTime).apply()
     }
 
-    fun getAccessTokenExpireTime(context: Context): Int {
+    fun getAccessTokenExpireTime(context: Context): Long {
         return context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
-            .getInt(ACCESS_TOKEN_EXPIRE_TIME, -1)
+            .getLong(ACCESS_TOKEN_EXPIRE_TIME, -1)
     }
 }

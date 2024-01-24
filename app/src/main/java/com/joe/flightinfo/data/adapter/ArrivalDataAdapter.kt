@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.joe.flightinfo.data.model.TdxFlightArrivalInfoItem
-import com.joe.flightinfo.databinding.FlightInfoItemLayoutBinding
+import com.joe.flightinfo.databinding.FlightArrivalInfoItemLayoutBinding
 
-class DataAdapter : RecyclerView.Adapter<DataAdapter.MyViewHolder>() {
+class ArrivalDataAdapter : RecyclerView.Adapter<ArrivalDataAdapter.MyViewHolder>() {
     private var items = ArrayList<TdxFlightArrivalInfoItem>()
 
     fun setData(data: ArrayList<TdxFlightArrivalInfoItem>) {
@@ -15,7 +15,7 @@ class DataAdapter : RecyclerView.Adapter<DataAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = FlightInfoItemLayoutBinding.inflate(layoutInflater)
+        val binding = FlightArrivalInfoItemLayoutBinding.inflate(layoutInflater)
         return MyViewHolder(binding)
     }
 
@@ -27,7 +27,7 @@ class DataAdapter : RecyclerView.Adapter<DataAdapter.MyViewHolder>() {
         holder.bind(items[position])
     }
 
-    class MyViewHolder(val binding: FlightInfoItemLayoutBinding) :
+    class MyViewHolder(val binding: FlightArrivalInfoItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(data: TdxFlightArrivalInfoItem) {

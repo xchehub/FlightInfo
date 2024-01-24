@@ -40,7 +40,7 @@ object TokenHelper {
             }.onSuccess {
                 it.body()
                 SharePreferenceHelper.setAccessToken(context, Result.Success(it.body()!!).toString())
-                SharePreferenceHelper.setAccessTokenExpireTime(context, System.currentTimeMillis().toInt() / 1000)
+                SharePreferenceHelper.setAccessTokenExpireTime(context, System.currentTimeMillis())
 
                 callback.successful()
             }.onFailure {
