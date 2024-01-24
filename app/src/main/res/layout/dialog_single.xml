@@ -19,7 +19,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:text="關閉"
-            android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -43,7 +42,6 @@
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:textColor="@color/teal_700"
                 android:textSize="16dp"
                 android:textStyle="bold"
                 tools:text="確認" />
