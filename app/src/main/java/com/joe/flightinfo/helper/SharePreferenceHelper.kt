@@ -14,6 +14,7 @@ const val HKD_RATE = "hkd_rate"
 const val JPY_RATE = "jpy_rate"
 
 const val ACCESS_TOKEN = "access_token"
+const val ACCESS_TOKEN_EXPIRE_TIME = "access_token_expire_time"
 
 object SharePreferenceHelper {
     fun setBaseAirport(context: Context, currency: String) {
@@ -90,5 +91,15 @@ object SharePreferenceHelper {
     fun getAccessToken(context: Context): String? {
         return context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
             .getString(ACCESS_TOKEN, "")
+    }
+
+    fun setAccessTokenExpireTime(context: Context, expireTime: Int) {
+        context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE).edit()
+            .putInt(ACCESS_TOKEN_EXPIRE_TIME, expireTime).apply()
+    }
+
+    fun getAccessTokenExpireTime(context: Context): Int {
+        return context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
+            .getInt(ACCESS_TOKEN_EXPIRE_TIME, -1)
     }
 }

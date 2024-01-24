@@ -70,6 +70,11 @@ class MainActivity : AppCompatActivity() {
         startService(serviceIntent)
     }
 
+//    override fun onResume() {
+//        super.onResume()
+//        TokenHelper.checkAccessToken(baseContext)
+//    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)

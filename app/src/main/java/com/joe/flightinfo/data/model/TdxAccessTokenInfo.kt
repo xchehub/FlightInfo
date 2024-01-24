@@ -1,10 +1,10 @@
 package com.joe.flightinfo.data.model
 
 data class TdxAccessTokenInfo(
-    val access_token: String,
-    val expires_in: Int,
-//    val not-before-policy: Int,
-    val refresh_expires_in: Int,
-    val scope: String,
-    val token_type: String
+    var access_token: String,
+    var expires_in: Int = 0,
+    var refresh_expires_in: Int,
+    var token_type: String,
+    var not_before_policy: Int,
+    var scope: String
 )
