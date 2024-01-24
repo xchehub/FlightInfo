@@ -30,6 +30,13 @@
                 android:textSize="14sp"
                 android:layout_margin="5dp"
                 android:textStyle="bold"
+                app:getAirlineName='@{flightDepartureInfoData.airlineID}' />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_margin="5dp"
+                android:textStyle="bold"
                 android:text='@{flightDepartureInfoData.airlineID}' />
 
         </LinearLayout>
@@ -152,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:text='@{flightDepartureInfoData.departureAirportID}'/>
+                app:getAirportName='@{flightDepartureInfoData.departureAirportID}' />
 
             <TextView android:id="@+id/departureAirportTextView"
                 android:layout_width="match_parent"
@@ -175,7 +182,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:text='@{flightDepartureInfoData.arrivalAirportID}'/>
+                app:getAirportName='@{flightDepartureInfoData.arrivalAirportID}'/>
 
             <TextView android:id="@+id/arrivalAirportTextView"
                 android:layout_width="match_parent"
