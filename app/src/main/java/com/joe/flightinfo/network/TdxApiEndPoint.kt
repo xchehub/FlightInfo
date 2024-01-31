@@ -46,7 +46,8 @@ interface TdxApiEndPoint {
         @Header("authorization") token: String,
         @Query("\$top") top: String,
         @Query("\$format") format: String,
-        @Query("\$filter") filter: String
+        @Query("\$filter") filter: String,
+        @Query("\$orderby") orderBy: String
     ): Response<ArrayList<TdxFlightDepartureInfoItem>>
 
     @Headers("Accept: application/json")
@@ -56,6 +57,7 @@ interface TdxApiEndPoint {
         @Header("authorization") token: String,
         @Query("\$top") top: String,
         @Query("\$format") format: String,
-        @Query("\$filter") filter: String
+        @Query("\$filter") filter: String,
+        @Query("\$orderby") orderBy: String
     ): Response<ArrayList<TdxFlightArrivalInfoItem>>
 }
