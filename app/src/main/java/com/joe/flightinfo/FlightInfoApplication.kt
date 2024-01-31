@@ -3,6 +3,7 @@ package com.joe.flightinfo
 import android.app.Application
 import com.joe.flightinfo.helper.AirlineHelper
 import com.joe.flightinfo.helper.AirportHelper
+import com.joe.flightinfo.helper.TokenHelper
 
 class FlightInfoApplication : Application() {
 
@@ -14,9 +15,9 @@ class FlightInfoApplication : Application() {
 
     companion object {
         lateinit var airportHelper: AirportHelper
-            private set
 
         lateinit var airlineHelper: AirlineHelper
-            private set
+
+        lateinit var accessTokenHelper: TokenHelper
     }
 }

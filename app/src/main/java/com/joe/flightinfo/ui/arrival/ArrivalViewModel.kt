@@ -10,7 +10,6 @@ import com.joe.flightinfo.GlobalAccessToken
 import com.joe.flightinfo.data.FlightInfoRepository
 import com.joe.flightinfo.data.adapter.ArrivalDataAdapter
 import com.joe.flightinfo.data.model.TdxFlightArrivalInfoItem
-import com.joe.flightinfo.helper.SharePreferenceHelper
 import com.joe.flightinfo.network.TdxApiEndPoint
 import com.joe.flightinfo.network.TdxRetrofitClient
 import com.joe.flightinfo.ui.Result
